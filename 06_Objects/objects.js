@@ -56,3 +56,20 @@ let mysteryColor = "yellow";
 palette[mysteryColor]; // "#f9ca24"
 
 // palette.mysteryColor will not work because JavaScript will try looking for an actual property with the name mysteryColor inside of the OBJECT.
+
+// _______________________________________________________________________
+
+// Updating Properties:
+fitBitData.workoutsThisWeek = "6 of 7";
+fitBitData.totalMiles += 7.5;
+
+// Adding New Properties:
+fitBitData.heartStillBeating = "true";
+
+// Square Bracket Notation:
+
+const userReviews = {};
+
+userReviews["queenBee49"] = 4.0;
+userReviews["mrSmith78"] = 3.5;
+userReviews; // {queenBee49: 4, mrSmith78: 3.5}
