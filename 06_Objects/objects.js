@@ -1,4 +1,5 @@
 // OBJECT LITERALS
+
 // _______________________________________________________________________
 
 // OBJECTS differ from arrays in that they are unordered collections of key value pairs.
@@ -73,3 +74,48 @@ const userReviews = {};
 userReviews["queenBee49"] = 4.0;
 userReviews["mrSmith78"] = 3.5;
 userReviews; // {queenBee49: 4, mrSmith78: 3.5}
+
+// _______________________________________________________________________
+
+// NESTED OBJECTS
+
+// Just like with ARRAYS, we can nest OBJECTS.
+
+// EXAMPLE 1
+
+const student = {
+  firstName: "David",
+  lastName: "Jones",
+  strengths: ["Music", "Art"], // Nested ARRAY
+  exams: { midterm: 92, final: 88 }, // Nested OBJECT
+};
+
+// Find the average of the student's grades:
+
+const avg = (student.exams.midterm + student.exams.final) / 2;
+
+// Access "Art" within the strengths property:
+
+student.strengths[1];
+
+// EXAMPLE 2
+
+const shoppingCart = [
+  {
+    product: "Jenga Classic",
+    price: 6.88,
+    quantity: 1,
+  },
+
+  {
+    product: "Echo Dot",
+    price: 29.99,
+    quantity: 3,
+  },
+
+  {
+    product: "Fire Stick",
+    price: 39.99,
+    quantity: 2,
+  },
+];
