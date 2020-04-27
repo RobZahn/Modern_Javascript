@@ -119,3 +119,20 @@ const shoppingCart = [
     quantity: 2,
   },
 ];
+
+// _______________________________________________________________________
+
+// OBJECTS AND ARRAYS ARE REFERENCE TYPES
+
+// Unlike with primitive data, OBJECTS and ARRAYS are not stored within variables. Variables contain pointers that reference where the OBJECTS and ARRAYS are stored in memory.
+
+const palette = {
+  red: "#eb4d4b",
+  yellow: "#f9ca24",
+  blue: "#30336b",
+};
+
+const palette2 = palette;
+palette2.green = #00ff00;
+
+// This code will update BOTH palette and palette2 because they are both pointing to the same location in memory.
