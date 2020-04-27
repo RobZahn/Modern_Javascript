@@ -42,3 +42,17 @@ nums["45"]; // "forty five"
 nums["76 trombones"]; // "great song!"
 
 // _______________________________________________________________________
+
+// The OBJECT[property] syntax is also very useful when using dynamic values like variables.
+
+const palette = {
+  red: "#eb4d4b",
+  yellow: "#f9ca24",
+  blue: "#30336b",
+};
+
+let mysteryColor = "yellow";
+
+palette[mysteryColor]; // "#f9ca24"
+
+// palette.mysteryColor will not work because JavaScript will try looking for an actual property with the name mysteryColor inside of the OBJECT.
