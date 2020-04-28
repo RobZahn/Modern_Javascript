@@ -61,3 +61,11 @@ for (let i = 50; i >= 0; i -= 10) {
 // 0
 
 // _______________________________________________________________________
+
+// INFINITE LOOPS
+
+// Loops where the ending condition is never met.
+
+// for (let i = 20; i >= 0; i++) {
+//   console.log(i);
+// }
