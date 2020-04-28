@@ -136,3 +136,20 @@ const palette2 = palette;
 palette2.green = "#00ff00";
 
 // This code will update BOTH palette and palette2 because they are both pointing to the same location in memory.
+
+// _______________________________________________________________________
+
+// ARRAY / OBJECT EQUALITY
+
+let integers = [1, 2, 3];
+let mysteryIntegers = [1, 2, 3];
+
+integers === mysteryIntegers; // false
+integers == mysteryIntegers; // false
+
+// In the above example, integers and mysteryIntegers are NOT equal even though they contain identical content because the variables are pointing to different arrays that are saved to different memory addresses.
+
+let moreIntegers = integers;
+
+integers === moreIntegers; // true
+integers == moreIntegers; // true
