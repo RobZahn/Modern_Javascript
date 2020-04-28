@@ -42,3 +42,25 @@ console.log("Winner winner chicken dinner");
 // ______________________________________________________________________
 
 // BREAK Keyword
+
+// Breaks out of a loop.
+
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+  if (i === 5) {
+    break;
+  }
+}
+
+// Breaks are much more commonly used with while loops.
+const newTarget = Math.floor(Math.random() * 10) + 1;
+let newGuess = Math.floor(Math.random() * 10 + 1);
+
+while (true) {
+  if (newTarget === newGuess) break;
+  console.log(`Target: ${newTarget} Guess: ${newGuess}`);
+  newGuess = Math.floor(Math.random() * 10 + 1);
+}
+
+console.log(`Target: ${newTarget} Guess: ${newGuess}`);
+console.log("Winner winner chicken dinner");
