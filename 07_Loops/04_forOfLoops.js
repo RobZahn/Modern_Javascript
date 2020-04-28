@@ -81,3 +81,54 @@ const words2 = ["box", "shake", "tub", "berry"];
 for (let i = 0; i < words1.length; i++) {
   console.log(`${words1[i]}${words2[i]}`);
 }
+
+console.log("-----");
+
+//____________________________________________________________________
+
+// FOR...OF with OBJECTS
+
+// NOTE: Wrapping the key name with "" allows us to use spaces.
+
+const movieReviews = {
+  Arrival: 9.5,
+  Alien: 9,
+  Amelie: 8,
+  "In Bruges": 9,
+  Amadeus: 10,
+  "Kill Bill": 8,
+  "Little Miss Sunshine": 8.5,
+  Coraline: 7.5,
+};
+
+// IMPORTANT: OBJECTS are NOT iterables! To loop through them we need to use an alternative method. Object.keys() will provide us with an array of keys that can be iterated over and Object.values() will do the same for values.
+
+// List each movie and its score (keys and values)
+
+for (let movie of Object.keys(movieReviews)) {
+  console.log(movie, movieReviews[movie]);
+}
+
+// Arrival 9.5
+// Alien 9
+// Amelie 8
+// In Bruges 9
+// Amadeus 10
+// Kill Bill 8
+// Little Miss Sunshine 8.5
+// Coraline 7.5
+
+console.log("-----");
+
+// Find average rating of all movies:
+
+const ratings = Object.values(movieReviews);
+let total = 0;
+for (let r of ratings) {
+  total += r;
+}
+
+let avg = total / ratings.length;
+console.log(avg);
+
+console.log("-----");
