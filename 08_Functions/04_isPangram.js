@@ -8,9 +8,23 @@
 
 function isPangram(sentence) {
   const alpha = "abcdefghijklmnopqrstuvwxyz".split("");
+  const downcaseSent = sentence.toLowerCase();
 
-  for (char of alpha) {
-    if (sentence.toLowerCase().indexOf(char) === -1) return false;
+  for (let char of alpha) {
+    if (downcaseSent.indexOf(char) === -1) return false;
+  }
+
+  return true;
+}
+
+// Using .includes()
+
+function isPangramTwo(sentence) {
+  const alpha = "abcdefghijklmnopqrstuvwxyz".split("");
+  const downcaseSent = sentence.toLowerCase();
+
+  for (let char of alpha) {
+    if (!downcaseSent.includes(char)) return false;
   }
 
   return true;
