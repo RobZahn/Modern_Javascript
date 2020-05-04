@@ -19,7 +19,7 @@ numbers.forEach(function (num) {
 
 console.log("-----");
 
-//_____________________________________________________________________________
+//___________________________________________________________________________
 
 function printTriple(n) {
   console.log(n * 3);
@@ -38,7 +38,7 @@ numbers.forEach(printTriple);
 
 console.log("-----");
 
-//_____________________________________________________________________________
+//___________________________________________________________________________
 
 const books = [
   {
@@ -62,3 +62,23 @@ const books = [
     rating: 4.36,
   },
 ];
+
+books.forEach(function (book) {
+  console.log(book.title.toUpperCase());
+});
+
+//___________________________________________________________________________
+
+// forEach will take an additional parameter if we want to use the index:
+
+letters = ["a", "b", "c", "d", "e"];
+
+letters.forEach(function (char, idx) {
+  console.log(idx, char);
+});
+
+// 0 "a"
+// 1 "b"
+// 2 "c"
+// 3 "d"
+// 4 "e"
