@@ -24,3 +24,5 @@ console.log(allEndWithG); // true
 const someStartWithD = words.some(word => word[0] === 'd');
 
 console.log(someStartWithD); // true
+
+console.log('-----');
