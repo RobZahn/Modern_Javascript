@@ -1,4 +1,4 @@
-// Map
+// Array.map()
 
 // Creates a new array with the results of calling a callback on every element in the array. Elements MUST be returned in order for map to work.
 

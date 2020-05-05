@@ -1,4 +1,4 @@
-// forEach
+// Array.forEach()
 
 // Accepts a callback function. Calls the function once per element in the array. The callback can be anonymous or named.
 

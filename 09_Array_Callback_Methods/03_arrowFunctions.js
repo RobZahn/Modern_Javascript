@@ -111,3 +111,5 @@ const parityList2 = nums.map(n => {
 // One Liner w/ Ternary
 
 const parityList3 = nums.map(n => (n % 2 === 0 ? "even" : "odd"));
+
+console.log("-----");
