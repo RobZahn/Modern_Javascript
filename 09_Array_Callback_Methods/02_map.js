@@ -54,3 +54,5 @@ const alteredWords = words.map(function (word) {
 });
 
 console.log(alteredWords);
+
+console.log("-----");
