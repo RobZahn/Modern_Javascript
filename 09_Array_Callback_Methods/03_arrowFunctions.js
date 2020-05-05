@@ -93,3 +93,21 @@ const doubles3 = nums.map(n => {
 // One Liner Arrow
 
 const doubles4 = nums.map(n => n * 2);
+
+// Regular Expression
+
+const parityList = nums.map(function (n) {
+  if (n % 2 === 0) return "even";
+  return "odd";
+});
+
+// Arrow
+
+const parityList2 = nums.map(n => {
+  if (n % 2 === 0) return "even";
+  return "odd";
+});
+
+// One Liner w/ Ternary
+
+const parityList3 = nums.map(n => (n % 2 === 0 ? "even" : "odd"));
