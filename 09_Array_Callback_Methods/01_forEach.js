@@ -67,6 +67,8 @@ books.forEach(function (book) {
   console.log(book.title.toUpperCase());
 });
 
+console.log("-----");
+
 //___________________________________________________________________________
 
 // forEach will take an additional parameter if we want to use the index:
@@ -82,3 +84,5 @@ letters.forEach(function (char, idx) {
 // 2 "c"
 // 3 "d"
 // 4 "e"
+
+console.log("-----");
