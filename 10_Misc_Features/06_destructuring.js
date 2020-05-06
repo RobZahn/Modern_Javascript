@@ -116,3 +116,36 @@ const results = [
 // Comma skips the first object, then we access country from the second object.
 
 const [, { country1 }] = results;
+
+console.log('-----');
+
+//______________________________________________________________________________
+
+// Destructuring Parameters
+
+// Traditional method:
+
+function print(person) {
+  const { firstName, lastName, title } = person;
+  console.log(`${firstName} ${lastName}, ${title}`);
+}
+
+print(runner); // Eliud Kipchoge, Elder of the Order of the Golden Heart of Kenya
+
+// Using destructuring:
+
+function print1({ firstName, lastName, title }) {
+  console.log(`${firstName} ${lastName}, ${title}`);
+}
+
+print1(runner); // Eliud Kipchoge, Elder of the Order of the Golden Heart of Kenya
+
+// Using arrays:
+
+const response = ['HTTP/1.1', '200 OK', 'application/json'];
+
+function parseResponse([protocol, statusCode, contentType]) {
+  console.log(`Status: ${statusCode}`);
+}
+
+parseResponse(response); // Status: 200 OK
