@@ -60,3 +60,5 @@ console.log(mollusks2);
 const cephCopy = [...cephalopods];
 
 // This will give us a new array called cephCopy with identical content to that of cephalopods but with a unique reference.
+
+console.log('-----');
