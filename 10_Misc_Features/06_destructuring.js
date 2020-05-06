@@ -57,3 +57,62 @@ console.log('-----');
 //______________________________________________________________________________
 
 // Objects:
+
+// When destructuring objects, the syntax is the same as with arrays.
+// IMPORTANT: The variable names must match the key names within the object!!!
+
+const runner = {
+  firstName: 'Eliud',
+  lastName: 'Kipchoge',
+  country: 'Kenya',
+  title: 'Elder of the Order of the Golden Heart of Kenya'
+};
+
+const { firstName, lastName } = runner;
+console.log(firstName); // Eliud
+console.log(lastName); // Kipchoge
+
+//const {first, last} = runner; --> Will NOT work. first and last will be undefined.
+
+// If we wanted to use a different name than that of the key:
+
+const { country: nation, title: honorific } = runner;
+console.log(nation); // Kenya
+console.log(honorific); // Elder of the Order of the Golden Heart of Kenya
+
+console.log('-----');
+
+// We can use rest with destructured objects:
+
+const { firstName: first1, lastName: last1, ...other } = runner;
+console.log(first1); // Eliud
+console.log(last1); // Kipchoge
+console.log(other); // {country: "Kenya", title: "Elder of the Order of the Golden Heart of Kenya"}
+
+//______________________________________________________________________________
+
+// Nested Destructuring
+
+const results = [
+  {
+    firstName1: 'Eliud',
+    lastName1: 'Kipchoge',
+    country1: 'Kenya'
+  },
+  {
+    firstName1: 'Feyisa',
+    lastName1: 'Lilesa',
+    country1: 'Ethiopia'
+  },
+  {
+    firstName1: 'Galen',
+    lastName1: 'Rupp',
+    country1: 'United States'
+  }
+];
+
+// Extract country of the second place runner:
+
+// Comma skips the first object, then we access country from the second object.
+
+const [, { country1 }] = results;
