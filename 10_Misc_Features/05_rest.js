@@ -54,6 +54,8 @@ fullName('Tom', 'Jones', 'III', 'Esquire');
 // 3: "Esquire"
 // Tom
 
+console.log('-----');
+
 // We can see here that arguments includes everything with no deliniation between the data.
 
 // In summary, using the arguments object is not a fun time. No array functionality because it's not a real array. It has to be turned into one.
@@ -63,7 +65,7 @@ fullName('Tom', 'Jones', 'III', 'Esquire');
 // Rest ...
 
 // Looks like Spread, but it's not. Does the opposite.
-// Consolidates data down into a single array.
+// Consolidates "the rest (or remaining)" of the data down into a single array.
 // Goes in the parameter list of a function definition.
 
 function restSum(...nums) {
@@ -80,7 +82,9 @@ function restSum1(...nums) {
 
 restSum1(4, 5, 6, 7); // 22
 
-//___________________________________________________________________________
+console.log('-----');
+
+//______________________________________________________________________________
 
 // Rest Params
 
@@ -98,9 +102,13 @@ fullName1('Tom', 'Jones', 'III', 'Esquire');
 // last: Jones
 // titles: ["III", "Esquire"] --> Titles are collected separately
 
+console.log('-----');
+
 // Rest can be used in an arrow expression:
 
 const restMultiply = (...nums) =>
   nums.reduce((total, currentVal) => total * currentVal);
 
 console.log(restMultiply(5, 10)); // 50
+
+console.log('-----');
