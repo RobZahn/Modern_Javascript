@@ -35,3 +35,25 @@ console.log(`Bronze Medal: ${bronze1}`);
 // Gold Medal: Eliud Kipchoge
 // Silver Medal: Feyisa Lelisa
 // Bronze Medal: Galen Rupp
+
+console.log('-----');
+
+// It is possible to skip indices with commas by using this syntax:
+
+const [first, , , fourth] = raceResults;
+console.log(first); // Eliud Kipchoge
+console.log(fourth); // Ghirmay Ghebreslassie
+
+console.log('-----');
+
+// Using rest inside of a destructuring statement:
+
+const [winner, ...others] = raceResults;
+console.log(winner); // Eliud Kipchoge
+console.log(others); // ["Feyisa Lelisa", "Galen Rupp", "Ghirmay Ghebreslassie", "Alphonce Simou", "Jared Ward"]
+
+console.log('-----');
+
+//______________________________________________________________________________
+
+// Objects:
