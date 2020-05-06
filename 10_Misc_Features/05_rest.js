@@ -64,7 +64,43 @@ fullName('Tom', 'Jones', 'III', 'Esquire');
 
 // Looks like Spread, but it's not. Does the opposite.
 // Consolidates data down into a single array.
+// Goes in the parameter list of a function definition.
 
-// Function that returns the sum of any amount of number arguments:
+function restSum(...nums) {
+  console.log(nums);
+}
 
-// function sum()
+console.log(restSum(4, 5, 6, 7)); // [4, 5, 6, 7] --> Actual array literal
+
+function restSum1(...nums) {
+  return nums.reduce((sum, currentVal) => {
+    return sum + currentVal;
+  });
+}
+
+restSum1(4, 5, 6, 7); // 22
+
+//___________________________________________________________________________
+
+// Rest Params
+
+// Collect all remaining arguments into an actual array:
+
+function fullName1(first, last, ...titles) {
+  console.log('first:', first);
+  console.log('last:', last);
+  console.log('titles:', titles);
+}
+
+fullName1('Tom', 'Jones', 'III', 'Esquire');
+
+// first: Tom
+// last: Jones
+// titles: ["III", "Esquire"] --> Titles are collected separately
+
+// Rest can be used in an arrow expression:
+
+const restMultiply = (...nums) =>
+  nums.reduce((total, currentVal) => total * currentVal);
+
+console.log(restMultiply(5, 10)); // 50
