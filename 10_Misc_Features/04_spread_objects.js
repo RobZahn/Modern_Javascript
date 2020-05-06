@@ -32,7 +32,7 @@ const catDogClone = { ...catDog };
 
 // NOTE: It is only possible to spread an object to another object. We can however spread an array into an object:
 
-{...[4,5,6]}
+const spreadObj = { ...[4, 5, 6] };
 // {0: 4, 1: 5, 2: 6}
 
 // The keys will automatically populate themselves based on the indices of the elements of the array.
