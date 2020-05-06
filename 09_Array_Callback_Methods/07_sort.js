@@ -27,3 +27,5 @@ console.log(descSort); // [9500, 3000, 400.5, 99.99, 35.99, 12]
 // b              a
 // 4000     -    1000       =      POSITIVE NUMBER      :  B BEFORE A
 // 35.99     -    12        =      POSITIVE NUMBER      :  B BEFORE A
+
+console.log('-----');
