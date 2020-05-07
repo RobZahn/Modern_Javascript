@@ -23,6 +23,8 @@ celebrity.fullName();
 
 // Using destructuring:
 
+console.log('-----');
+
 const celebrity1 = {
   first: 'Cherilyn',
   last: 'Sarkisian',
@@ -52,6 +54,8 @@ celebrity1.printBio();
 // Cherilyn Sarkisian, AKA Cher is a person!
 
 // THIS gives us a way to write methods that are aware of the objects they live in and that have access to and the ability to interact with all of the other properties of those objects.
+
+console.log('-----');
 
 //______________________________________________________________________________
 
