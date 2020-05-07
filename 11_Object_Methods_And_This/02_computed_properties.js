@@ -46,3 +46,5 @@ console.log(newTeamTwo);
 //   director: "James Cameron",
 //   happy: ":)"
 // }
+
+console.log('-----');
