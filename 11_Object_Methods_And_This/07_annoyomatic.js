@@ -49,10 +49,14 @@ const annoyer = {
 
   startNew() {
     // console.log(this.pickPhrase());
-
-    setInterval(() => {
+    this.timerId = setInterval(() => {
+      // --> this.timerId saves the interval ID
       console.log(this.pickPhrase()); // annoyer.pickPhrase()
     }, 1000);
+  },
+
+  stop() {
+    clearInterval(this.timerId);
   }
 };
 
