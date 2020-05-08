@@ -35,7 +35,6 @@ const myDeck = {
   shuffle() {
     const { deck } = this;
     // loop through arr backwards
-    debugger;
     for (let i = deck.length - 1; i > 0; i--) {
       // pick rand idx before current element
       let j = Math.floor(Math.random() * (i + 1));
@@ -57,3 +56,59 @@ const myDeck = {
 // 9: {value: "4", suit: "diamonds"}
 // 10: {value: "4", suit: "spades"}
 // etc...
+
+// Function that is a factory for decks:
+
+const makeDeck = () => {
+  return {
+    deck: [],
+    drawnCards: [],
+    suits: ['hearts', 'diamonds', 'spades', 'clubs'],
+    values: '2,3,4,5,6,7,8,9,10,J,Q,K,A',
+
+    initializeDeck() {
+      const { suits, values, deck } = this;
+
+      for (let value of values.split(',')) {
+        for (let suit of suits) {
+          deck.push({ value, suit });
+        }
+      }
+    },
+
+    drawCard() {
+      const card = this.deck.pop(); // --> pops last (top) card in the deck
+      this.drawnCards.push(card); // --> pushes selected card into drawn cards
+      return card;
+    },
+
+    drawMultiple(numCards) {
+      const cards = [];
+      for (let i = 0; i < numCards; i++) {
+        cards.push(this.drawCard());
+      }
+
+      return cards;
+    },
+
+    // Fisher-Yates shuffle algorithm
+    shuffle() {
+      const { deck } = this;
+      // loop through arr backwards
+      for (let i = deck.length - 1; i > 0; i--) {
+        // pick rand idx before current element
+        let j = Math.floor(Math.random() * (i + 1));
+        // swap (destructuring shorthand)
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
+    }
+  };
+};
+
+const newDeck = makeDeck();
+newDeck.initializeDeck();
+newDeck.shuffle();
+
+const newDeck2 = makeDeck();
+newDeck2.initializeDeck();
+newDeck2.shuffle();
