@@ -10,6 +10,8 @@ newh2.classList.add('.special');
 
 // NOTE: This H2 is still not showing up on the webpage. We need to select an existing element in the DOM to append it to.
 
+//______________________________________________________________________________
+
 // parent.appendChild() adds the specified element as a child to the target element.
 
 const section = document.querySelector('section');
