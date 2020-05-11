@@ -6,6 +6,24 @@
     <title>DOM Events</title>
   </head>
   <body>
+    <!-- Inline Events -->
+    <button onclick="alert('You Clicked Me!')">Click Me 1</button>
+    <button onmouseover="alert('You Hovered Over Me!')">Click Me 2</button>
+
+    <button id="clicker">Clicker</button>
+
+    <button id="event-button"></button>
+
+    <form>
+      <input
+        onclick="console.log('CLICKED THE INPUT')"
+        type="range"
+        min="10"
+        ,
+        max="50"
+      />
+    </form>
+
     <script src="01_DOM_events_intro.js"></script>
   </body>
 </html>
