@@ -10,9 +10,11 @@ const colors = [
 ];
 
 // Changes color of H1 to the color of the clicked box
-const changeColor = function () {
+const changeColor = function (event) {
   console.log(this); // The clicked box
   h1.style.color = this.style.backgroundColor;
+  console.log(event); // <-- Event object
+  // MouseEvent {isTrusted: true, screenX: 1061, screenY: 264, clientX: 40, clientY: 148, …}
 };
 
 const h1 = document.querySelector('h1');
@@ -32,3 +34,13 @@ for (let color of colors) {
 }
 
 // NOTE: When assigning an event listener to a target element, THIS always refers to the target element itself.
+
+// The Event Object:
+
+// When we click on an element that has an event function assigned to it, the
+// associated function is called automatically and is passed an event object.
+// We always have access to the event object.
+
+document.body.addEventListener('keypress', function (event) {
+  console.log(event);
+});
