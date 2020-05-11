@@ -110,12 +110,16 @@ for (let game of warriorsGames) {
   const { team: aTeam, points: aPoints } = awayTeam;
   const teamNames = `${aTeam} @ ${hTeam}`;
   let scoreLine;
+
   if (aPoints > hPoints) {
     scoreLine = `<b>${aPoints}</b> - ${hPoints}`;
   } else {
     scoreLine = `${aPoints} - <b>${hPoints}</b>`;
   }
 
+  const warriors = hTeam === 'Golden State' ? homeTeam : awayTeam;
+  console.log(warriors.isWinner);
+  gameLI.classList.add(warriors.isWinner ? 'win' : 'loss');
   gameLI.innerHTML = `${teamNames} ${scoreLine}`;
 
   ulParent.append(gameLI);
