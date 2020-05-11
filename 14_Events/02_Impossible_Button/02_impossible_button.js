@@ -7,7 +7,10 @@ btn.addEventListener('mouseover', function () {
   btn.style.top = `${height}px`;
 });
 
-btn.addEventListener;
+btn.addEventListener('click', function () {
+  btn.innerText = 'You got me!';
+  document.body.style.backgroundColor = 'green';
+});
 
 // IMPORTANT: The Window has a property called window.screen which lists the properties
 // of a computer's physical monitor screen. availHeight, availWidth, etc can be
