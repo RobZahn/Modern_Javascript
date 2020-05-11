@@ -39,8 +39,10 @@ for (let color of colors) {
 
 // When we click on an element that has an event function assigned to it, the
 // associated function is called automatically and is passed an event object.
-// We always have access to the event object.
+// We always have access to the event object which contains tons of useful
+// properties that describe the event.
 
 document.body.addEventListener('keypress', function (event) {
   console.log(event);
+  // KeyboardEvent {isTrusted: true, key: "a", code: "KeyA", location: 0, ctrlKey: false, …}
 });
