@@ -5,6 +5,7 @@ const warriorsGames = [
       points: 119,
       isWinner: true
     },
+
     homeTeam: {
       team: 'Houston',
       points: 106,
@@ -18,6 +19,7 @@ const warriorsGames = [
       points: 105,
       isWinner: false
     },
+
     homeTeam: {
       team: 'Houston',
       points: 127,
@@ -31,6 +33,7 @@ const warriorsGames = [
       points: 126,
       isWinner: true
     },
+
     awayTeam: {
       team: 'Houston',
       points: 85,
@@ -44,6 +47,7 @@ const warriorsGames = [
       points: 92,
       isWinner: false
     },
+
     awayTeam: {
       team: 'Houston',
       points: 95,
@@ -57,6 +61,7 @@ const warriorsGames = [
       points: 94,
       isWinner: false
     },
+
     homeTeam: {
       team: 'Houston',
       points: 98,
@@ -70,6 +75,7 @@ const warriorsGames = [
       points: 115,
       isWinner: true
     },
+
     awayTeam: {
       team: 'Houston',
       points: 86,
@@ -83,6 +89,7 @@ const warriorsGames = [
       points: 101,
       isWinner: true
     },
+
     homeTeam: {
       team: 'Houston',
       points: 92,
@@ -98,12 +105,18 @@ const ulParent = document.createElement('ul');
 
 for (let game of warriorsGames) {
   const { homeTeam, awayTeam } = game;
-
   const gameLI = document.createElement('li');
-  const teamNames = `${awayTeam.team} @ ${homeTeam.team}`;
-  const scoreLine = `${awayTeam.points} - ${homeTeam.points}`;
+  const { team: hTeam, points: hPoints } = homeTeam;
+  const { team: aTeam, points: aPoints } = awayTeam;
+  const teamNames = `${aTeam} @ ${hTeam}`;
+  let scoreLine;
+  if (aPoints > hPoints) {
+    scoreLine = `<b>${aPoints}</b> - ${hPoints}`;
+  } else {
+    scoreLine = `${aPoints} - <b>${hPoints}</b>`;
+  }
 
-  gameLI.innerText = `${teamNames} ${scoreLine}`;
+  gameLI.innerHTML = `${teamNames} ${scoreLine}`;
 
   ulParent.append(gameLI);
 }
