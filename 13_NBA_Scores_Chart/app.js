@@ -94,15 +94,20 @@ const warriorsGames = [
 const body = document.querySelector('body');
 const ulParent = document.createElement('ul');
 
-//
+// Create LI for each game's teams and append to ulParent
 
 for (let game of warriorsGames) {
   const { homeTeam, awayTeam } = game;
 
   const gameLI = document.createElement('li');
-  gameLI.innerText = `${awayTeam.team} @ ${homeTeam.team}`;
+  const teamNames = `${awayTeam.team} @ ${homeTeam.team}`;
+  const scoreLine = `${awayTeam.points} - ${homeTeam.points}`;
+
+  gameLI.innerText = `${teamNames} ${scoreLine}`;
 
   ulParent.append(gameLI);
 }
 
-body.append(ulParent);
+// Prepend ulParent to body
+
+body.prepend(ulParent);
