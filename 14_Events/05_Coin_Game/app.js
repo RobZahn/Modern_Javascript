@@ -22,9 +22,11 @@ window.addEventListener('keydown', function (e) {
   } else if (e.key === 'ArrowRight' || e.key === 'Right' || e.key === 'd') {
     const currentLeft = extractPos(avatar.style.left);
     avatar.style.left = `${currentLeft + 50}px`;
+    avatar.style.transform = 'scale(1, 1)';
   } else if (e.key === 'ArrowLeft' || e.key === 'Left' || e.key === 'a') {
     const currentLeft = extractPos(avatar.style.left);
     avatar.style.left = `${currentLeft - 50}px`;
+    avatar.style.transform = 'scale(-1, 1)';
   }
 });
 
