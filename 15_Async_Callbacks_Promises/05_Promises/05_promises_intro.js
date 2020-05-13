@@ -23,7 +23,7 @@ console.log(willGetYouADog);
 // 'pending' because it hasn't been resolved or rejected.
 
 const willGetYouADog2 = new Promise((resolve, reject) => {
-  reject();
+  // reject();
 });
 
 console.log(willGetYouADog2);
@@ -35,7 +35,7 @@ console.log(willGetYouADog2);
 // Status is rejected
 
 const willGetYouADog3 = new Promise((resolve, reject) => {
-  resolve();
+  // resolve();
 });
 
 console.log(willGetYouADog3);
@@ -45,3 +45,48 @@ console.log(willGetYouADog3);
 // [[PromiseValue]]: undefined
 
 // Status is resolved
+
+// ******************************************
+// Promise That Is Randomly Resolved/Rejected
+// ******************************************
+
+const willGetYouADog4 = new Promise((resolve, reject) => {
+  const rand = Math.random();
+  return rand < 0.5 ? resolve() : reject();
+});
+
+console.log(willGetYouADog4);
+
+// *******
+// .then()
+// *******
+
+// .then() will run if our promise is resolved:
+
+const willGetYouADog5 = new Promise((resolve, reject) => {
+  const rand = Math.random();
+  return rand < 0.5 ? resolve() : reject();
+});
+
+willGetYouADog5.then(() => {
+  console.log('Yay we got a dog!');
+});
+
+// *******
+// .catch()
+// *******
+
+// .catch() will run if our promise is rejected:
+
+const willGetYouADog6 = new Promise((resolve, reject) => {
+  const rand = Math.random();
+  return rand < 0.5 ? resolve() : reject();
+});
+
+willGetYouADog6.then(() => {
+  console.log('Yay we got a dog!');
+});
+
+willGetYouADog6.catch(() => {
+  console.log('No dog. :(');
+});
