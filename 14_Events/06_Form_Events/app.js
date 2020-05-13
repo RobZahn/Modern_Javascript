@@ -29,12 +29,38 @@ form.addEventListener('submit', function (e) {
 
 const formData = {};
 
+// Add event listener to each input manually and add key value pair to formData.
+
 creditCardInput.addEventListener('input', e => {
-  console.log('CC Changed');
+  // console.log('CC Changed', e);
   formData['cc'] = e.target.value;
 });
 
-creditCardInput.addEventListener('input', e => {
-  console.log('Veggie Changed');
+veggieSelect.addEventListener('input', e => {
+  // console.log('Veggie Changed', e);
   formData['veggie'] = e.target.value;
 });
+
+termsCheckbox.addEventListener('input', e => {
+  // console.log(e.target.checked, e);
+  formData['agreeToTerms'] = e.target.checked;
+});
+
+// *********
+//  Refactor
+// *********
+
+formData2 = {};
+
+// Loop over each input and assign an Event Listener. Requires adding a name
+// attribute to the HTML.
+
+for (let input of [creditCardInput, termsCheckbox, veggieSelect]) {
+  input.addEventListener('input', e => {
+    if (e.target.type !== 'checkbox') {
+      formData2[e.target.name] = e.target.value;
+    } else {
+      formData2[e.target.name] = e.target.checked;
+    }
+  });
+}

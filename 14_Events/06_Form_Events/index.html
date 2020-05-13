@@ -8,13 +8,19 @@
   </head>
   <body>
     <form id="signup-form" action="/signup" method="get">
-      <input id="cc" type="text " placeholder="credit card" />
+      <input name="creditCard" id="cc" type="text " placeholder="credit card" />
       <label for="check"
         >I agree to sell my soul to your company.
-        <input id="terms" type="checkbox" name="" id="check" />
+        <input
+          name="agreeToTerms"
+          id="terms"
+          type="checkbox"
+          name=""
+          id="check"
+        />
       </label>
 
-      <select id="veggie">
+      <select name="selectedVeggie" id="veggie">
         <option value="eggplant">Eggplant</option>
         <option value="asparagus">Asparagus</option>
         <option value="carrot">Carrot</option>
