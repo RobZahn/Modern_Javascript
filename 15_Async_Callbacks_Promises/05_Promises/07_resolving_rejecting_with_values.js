@@ -21,11 +21,11 @@ const fakeRequest = url => {
       } else {
         reject({ status: 404 });
       }
-    }, 3000);
+    }, 1000);
   });
 };
 
-fakeRequest('/about')
+fakeRequest('/dogs')
   .then(response => {
     console.log('Status Code:', response.status);
     console.log('Data:', response.data);
@@ -35,3 +35,21 @@ fakeRequest('/about')
     console.log(response.status);
     console.log('Request Failed!');
   });
+
+// 404
+// Request Failed!
+
+fakeRequest('/users')
+  .then(response => {
+    console.log('Status Code:', response.status);
+    console.log('Data:', response.data);
+    console.log('Request Worked!');
+  })
+  .catch(response => {
+    console.log(response.status);
+    console.log('Request Failed!');
+  });
+
+// Status Code: 200
+// Data: (2) [{…}, {…}]
+// Request Worked!
