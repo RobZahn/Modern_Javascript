@@ -23,5 +23,12 @@ const isRightTriangle = (a, b, c) => {
 
 isRightTriangle(3, 4, 5);
 
-// First function isRightTriangle should return true if the square of a plus
+// First function isRightTriangle() should return true if the square of a plus
 // the square of b is equal to the square of c.
+
+// isRightTriangle() calls square(a) which in turn calls multiply(). multiply()
+// has no functions to call so it returns its value to square(a) which returns
+// its value to isRightTriangle(). This process continues for the next two
+// square() function calls.
+
+// Finally, isRightTriangle() returns its value.
