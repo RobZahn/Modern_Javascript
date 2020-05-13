@@ -83,35 +83,64 @@ const moveX2 = (element, amount, delay, onSuccess, onFail) => {
 
 moveX2(
   btn,
-  100,
+  300,
   1000,
   () => {
-    // success
+    //success callback
     moveX2(
       btn,
-      400,
+      300,
       1000,
       () => {
+        //success callback
         moveX2(
           btn,
-          700,
+          300,
           1000,
           () => {
-            console.log('Still screen real estate left');
+            //success callback
+            moveX2(
+              btn,
+              300,
+              1000,
+              () => {
+                //success callback
+                moveX2(
+                  btn,
+                  300,
+                  1000,
+                  () => {
+                    //success callback
+                    alert('YOU HAVE A WIDE SCREEN!');
+                  },
+                  () => {
+                    //failure callback
+                    alert('CANNOT MOVE FURTHER!');
+                  }
+                );
+              },
+              () => {
+                //failure callback
+                alert('CANNOT MOVE FURTHER!');
+              }
+            );
           },
           () => {
-            alert('Cannot Move Further!');
+            //failure callback
+            alert('CANNOT MOVE FURTHER!');
           }
         );
       },
       () => {
-        // fail
-        alert('Cannot Move Further!');
+        //failure callback
+        alert('CANNOT MOVE FURTHER!');
       }
     );
   },
   () => {
-    // fail
-    alert('Cannot Move Further!');
+    //failure callback
+    alert('CANNOT MOVE FURTHER!');
   }
 );
+
+// This is all to demonstrate how important promises are.
