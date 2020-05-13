@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/3d724dd7a9.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Promises Intro</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #main-nav .container {
+        display: flex;
+        color: #fff;
+        background-color: #333;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      #main-nav h1 {
+        display: inline-block;
+        margin-left: 1rem;
+        color: #fff;
+      }
+
+      #main-nav h1 span {
+        color: green;
+      }
+
+      #main-nav i {
+        position: relative;
+        top: 3px;
+        color: green;
+        padding: 0.5rem 0;
+      }
+
+      #main-nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      #main-nav ul li {
+        margin-right: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-bottom: 3px solid transparent;
+        transition: border-bottom 250ms ease-in-out;
+      }
+
+      #main-nav ul li:hover {
+        cursor: pointer;
+        border-bottom: 3px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="main-nav">
+      <div class="container">
+        <div id="logo">
+          <i class="fas fa-handshake fa-2x"></i>
+          <h1><span>Promises</span> Intro</h1>
+        </div>
+        <div id="nav-buttons">
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <script src="01_promises_intro.js"></script>
+  </body>
+</html>
