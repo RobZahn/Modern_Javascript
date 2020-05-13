@@ -11,7 +11,6 @@ form.addEventListener('submit', function (e) {
   alert('Submitted Form');
   e.preventDefault();
   console.log('cc', creditCardInput.value);
-  console.log('terms', termsCheckbox.value);
+  console.log('terms', termsCheckbox.checked);
   console.log('veggieSelect', veggieSelect.value);
-  console.log(e);
 });
