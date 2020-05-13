@@ -56,11 +56,9 @@ formData2 = {};
 // attribute to the HTML.
 
 for (let input of [creditCardInput, termsCheckbox, veggieSelect]) {
-  input.addEventListener('input', e => {
-    if (e.target.type !== 'checkbox') {
-      formData2[e.target.name] = e.target.value;
-    } else {
-      formData2[e.target.name] = e.target.checked;
-    }
+  input.addEventListener('input', ({ target }) => {
+    const { name, type, value, checked } = target;
+
+    formData2[name] = type === 'checkbox' ? checked : value;
   });
 }
