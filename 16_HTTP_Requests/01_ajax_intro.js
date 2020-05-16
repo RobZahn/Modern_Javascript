@@ -28,3 +28,24 @@
 </name>
 <email>todd@gmail</email>
 <age>40</age>
+
+// *********************************
+// JSON - JavaScript Object Notation
+// *********************************
+
+// JSON is the preferred method for sending data packets.
+
+// NOTE: Both keys and values in JSON objects must be wrapped in double quotes! // JSON objects can contain arrays but not JS functions.
+
+{
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower"
+  "active": true,
+  "members": [
+    "Molecule Man",
+    "Madame Uppercut",
+    "Eternal Flame"
+  ]
+}
