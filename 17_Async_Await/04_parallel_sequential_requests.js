@@ -61,4 +61,30 @@ async function lightShowParallel() {
 }
 
 // lightShowSequential();
-lightShowParallel();
+// lightShowParallel();
+
+// _____________________________________________________________________________
+
+// Promise.all() - helper method that collects all promises into an array.
+
+async function get3PokemonRefactored() {
+  // these requests are happening in parallel. In this case, prom1, prom2, prom3 contain a promise and NOT the value of the resolved promise.
+  const prom1 = axios.get('https://pokeapi.co/api/v2/pokemon/1');
+  const prom2 = axios.get('https://pokeapi.co/api/v2/pokemon/2');
+  const prom3 = axios.get('https://pokeapi.co/api/v2/pokemon/3');
+
+  const results = await Promise.all([prom1, prom2, prom3]);
+  console.log(results); // [{…}, {…}, {…}] -> array containing 3 response objects
+  printPokemon(results);
+}
+
+const printPokemon = results => {
+  for (let pokemon of results) {
+    console.log(pokemon.data.name);
+  }
+};
+
+get3PokemonRefactored();
+// bulbasaur
+// ivysaur
+// venusaur
