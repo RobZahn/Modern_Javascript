@@ -18,15 +18,16 @@ class Timer {
   start = () => {
     this.tick();
     this.intervalID = setInterval(this.tick, 1000);
+    this.startBtn.disabled = true;
   };
 
   pause = () => {
     clearInterval(this.intervalID);
+    this.startBtn.disabled = false;
   };
 
   tick = () => {
     this.timeRemaining -= 1;
-    console.log(this.timeRemaining);
   };
 
   get timeRemaining() {
