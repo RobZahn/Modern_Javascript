@@ -12,17 +12,22 @@ class Timer {
     this.pauseBtn = pauseBtn;
 
     this.startBtn.addEventListener('click', this.start);
+    this.pauseBtn.addEventListener('click', this.pause);
   }
 
   start = () => {
     this.tick();
-    setInterval(this.tick, 1000);
+    this.intervalID = setInterval(this.tick, 1000);
+  };
+
+  pause = () => {
+    clearInterval(this.intervalID);
   };
 
   tick = () => {
-    console.log('Tick');
+    const timeRemaining = parseFloat(this.durationInput.value);
+    this.durationInput.value = timeRemaining - 1;
   };
-  pause() {}
 
   onDurationChange() {}
 }
