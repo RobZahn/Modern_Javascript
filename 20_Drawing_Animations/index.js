@@ -15,19 +15,28 @@ class Timer {
     this.pauseBtn.addEventListener('click', this.pause);
   }
 
+  enableStartBtn = () => {
+    this.startBtn.disabled = false;
+  };
+
+  disableStartBtn = () => {
+    this.startBtn.disabled = true;
+  };
+
   start = () => {
     this.tick();
     this.intervalID = setInterval(this.tick, 1000);
-    this.startBtn.disabled = true;
+    this.disableStartBtn();
   };
 
   pause = () => {
     clearInterval(this.intervalID);
-    this.startBtn.disabled = false;
+    this.enableStartBtn();
   };
 
   tick = () => {
-    this.timeRemaining -= 1;
+    if (this.timeRemaining > 0) this.timeRemaining -= 1;
+    else this.pause();
   };
 
   get timeRemaining() {
@@ -37,8 +46,6 @@ class Timer {
   set timeRemaining(time) {
     return (this.durationInput.value = time);
   }
-
-  onDurationChange() {}
 }
 
 const timer = new Timer(durationInput, startBtn, pauseBtn);
