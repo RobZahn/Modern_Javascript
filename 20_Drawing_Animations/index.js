@@ -11,7 +11,7 @@ class Timer {
     this.startBtn = startBtn;
     this.pauseBtn = pauseBtn;
 
-    this.startBtn.addEventListener('click', this.start());
+    this.startBtn.addEventListener('click', this.start);
   }
 
   start() {
