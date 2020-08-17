@@ -14,15 +14,17 @@ class Timer {
     this.startBtn.addEventListener('click', this.start);
   }
 
-  start() {
-    console.log('Timer starting...');
-  }
+  start = () => {
+    this.tick();
+    setInterval(this.tick, 1000);
+  };
 
+  tick = () => {
+    console.log('Tick');
+  };
   pause() {}
 
   onDurationChange() {}
-
-  tick() {}
 }
 
 const timer = new Timer(durationInput, startBtn, pauseBtn);
