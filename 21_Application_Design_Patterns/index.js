@@ -10,6 +10,8 @@ const fetchData = async searchTerm => {
     }
   });
 
+  if (response.data.Error) return [];
+
   return response.data.Search;
 };
 
