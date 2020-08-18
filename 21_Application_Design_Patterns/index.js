@@ -12,7 +12,18 @@ const fetchData = async searchTerm => {
   console.log(response.data);
 };
 
+let timeoutID;
+const onInput = event => {
+  // force delay of n milliseconds after last keystroke
+  // prevents too many requests
+  if (timeoutID) {
+    clearTimeout(timeoutID);
+  }
+
+  timeoutID = setTimeout(() => {
+    fetchData(event.target.value);
+  }, 500);
+};
+
 // Event Handlers
-input.addEventListener('input', event => {
-  fetchData(event.target.value);
-});
+input.addEventListener('input', onInput);
