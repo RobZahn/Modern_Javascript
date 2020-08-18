@@ -1,6 +1,20 @@
 // Query Selectors
 const input = document.querySelector('input');
 const target = document.querySelector('#target');
+const root = document.querySelector('.autocomplete');
+const dropdown = document.querySelector('.dropdown');
+const resultsWrapper = document.querySelector('.results');
+
+// Config widget HTML
+root.innerHTML = `
+<label><strong>Search for a Movie</strong></label>
+<input type="text" class="input" />
+<div class="dropdown">
+  <div class="dropdown-menu">
+    <div class="dropdown-content results"></div>
+  </div>
+</div>
+`;
 
 const fetchData = async searchTerm => {
   const response = await axios.get('http://www.omdbapi.com/', {
@@ -24,7 +38,7 @@ const onInput = async event => {
 
     div.innerHTML = `
     <h2>${movie.Title}</h2>
-    <img src="${movie.Poster}" width="200">
+    <img src="${movie.Poster}">
     `;
 
     target.append(div);
