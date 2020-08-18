@@ -14,6 +14,7 @@ root.innerHTML = `
 const input = document.querySelector('input');
 const dropdown = document.querySelector('.dropdown');
 const resultsWrapper = document.querySelector('.results');
+const summary = document.querySelector('#summary');
 
 // Fetch Data helper
 const fetchData = async searchTerm => {
@@ -64,6 +65,7 @@ const populateDropdown = movies => {
   }
 };
 
+// Make follow up request with selected movie
 const onMovieSelect = async movie => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
@@ -71,7 +73,27 @@ const onMovieSelect = async movie => {
       i: movie.imdbID
     }
   });
-  console.log(response.data);
+
+  summary.innerHTML = movieTemplate(response.data);
+};
+
+const movieTemplate = movieDetails => {
+  return `
+  <article class="media">
+    <figure class="media-left">
+      <p class="image">
+        <img src="${movieDetails.Poster}" />
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <h1>${movieDetails.Title}</h1>
+        <h4>${movieDetails.Genre}</h4>
+        <p>${movieDetails.Plot}</p>
+      </div>
+    </div>
+  </article>
+  `;
 };
 
 // Event Handlers
