@@ -12,18 +12,23 @@ const fetchData = async searchTerm => {
   console.log(response.data);
 };
 
-let timeoutID;
-const onInput = event => {
-  // force delay of n milliseconds after last keystroke
-  // prevents too many requests
-  if (timeoutID) {
-    clearTimeout(timeoutID);
-  }
+const debounce = (func, delay = 1000) => {
+  // return a function that will wrap around onInput
+  // delaying request from firing off until n milliseconds after final keystroke
+  let timeoutID;
 
-  timeoutID = setTimeout(() => {
-    fetchData(event.target.value);
-  }, 500);
+  return (...args) => {
+    if (timeoutID) clearTimeout(timeoutID);
+
+    timeoutID = setTimeout(() => {
+      func.apply(null, args);
+    }, delay);
+  };
+};
+
+const onInput = event => {
+  debounce(fetchData(event.target.value));
 };
 
 // Event Handlers
-input.addEventListener('input', onInput);
+input.addEventListener('input', debounce(onInput, 500));
