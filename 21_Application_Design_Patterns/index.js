@@ -1,20 +1,21 @@
-// Query Selectors
-const input = document.querySelector('input');
-const target = document.querySelector('#target');
-const root = document.querySelector('.autocomplete');
-const dropdown = document.querySelector('.dropdown');
-const resultsWrapper = document.querySelector('.results');
-
 // Config widget HTML
+const root = document.querySelector('.autocomplete');
 root.innerHTML = `
 <label><strong>Search for a Movie</strong></label>
 <input type="text" class="input" />
 <div class="dropdown">
-  <div class="dropdown-menu">
-    <div class="dropdown-content results"></div>
-  </div>
+<div class="dropdown-menu">
+<div class="dropdown-content results"></div>
+</div>
 </div>
 `;
+
+// Query Selectors
+const input = document.querySelector('input');
+const dropdown = document.querySelector('.dropdown');
+const resultsWrapper = document.querySelector('.results');
+
+// Widget Logic
 
 const fetchData = async searchTerm => {
   const response = await axios.get('http://www.omdbapi.com/', {
@@ -33,15 +34,17 @@ const onInput = async event => {
   const movies = await fetchData(event.target.value);
   console.log(movies);
 
+  dropdown.classList.add('is-active');
   for (let movie of movies) {
-    const div = document.createElement('div');
+    const option = document.createElement('a');
+    option.classList.add('dropdown-item');
 
-    div.innerHTML = `
-    <h2>${movie.Title}</h2>
+    option.innerHTML = `
     <img src="${movie.Poster}">
+    ${movie.Title}
     `;
 
-    target.append(div);
+    resultsWrapper.append(option);
   }
 };
 
