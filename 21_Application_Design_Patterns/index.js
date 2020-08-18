@@ -15,8 +15,7 @@ const input = document.querySelector('input');
 const dropdown = document.querySelector('.dropdown');
 const resultsWrapper = document.querySelector('.results');
 
-// Widget Logic
-
+// Fetch Movies
 const fetchData = async searchTerm => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
@@ -30,9 +29,13 @@ const fetchData = async searchTerm => {
   return response.data.Search;
 };
 
+// Populate list with requested movies
 const onInput = async event => {
   const movies = await fetchData(event.target.value);
-  console.log(movies);
+  if (!movies.length) {
+    dropdown.classList.remove('is-active');
+    return;
+  }
 
   resultsWrapper.innerHTML = '';
   dropdown.classList.add('is-active');
@@ -52,3 +55,9 @@ const onInput = async event => {
 
 // Event Handlers
 input.addEventListener('input', debounce(onInput, 500));
+
+document.addEventListener('click', event => {
+  if (!root.contains(event.target)) {
+    dropdown.classList.remove('is-active');
+  }
+});
