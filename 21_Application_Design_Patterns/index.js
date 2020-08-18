@@ -9,11 +9,11 @@ const fetchData = async searchTerm => {
     }
   });
 
-  console.log(response.data);
+  return response.data.Search;
 };
 
 const onInput = event => {
-  debounce(fetchData(event.target.value));
+  const movies = fetchData(event.target.value);
 };
 
 // Event Handlers
