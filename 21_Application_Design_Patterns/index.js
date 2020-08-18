@@ -29,28 +29,17 @@ const fetchData = async searchTerm => {
   return response.data.Search;
 };
 
-// Populate list with requested movies
+// Populate dropdown with requested movies
 const onInput = async event => {
   const movies = await fetchData(event.target.value);
   if (!movies.length) {
-    dropdown.classList.remove('is-active');
+    deactivateDropdown();
     return;
   }
 
   resultsWrapper.innerHTML = '';
-  dropdown.classList.add('is-active');
-  for (let movie of movies) {
-    const option = document.createElement('a');
-    const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
-
-    option.classList.add('dropdown-item');
-    option.innerHTML = `
-      <img src="${imgSrc}">
-      ${movie.Title}
-      `;
-
-    resultsWrapper.append(option);
-  }
+  activateDropdown();
+  populateDropdown(movies);
 };
 
 // Event Handlers
@@ -58,6 +47,6 @@ input.addEventListener('input', debounce(onInput, 500));
 
 document.addEventListener('click', event => {
   if (!root.contains(event.target)) {
-    dropdown.classList.remove('is-active');
+    deactivateDropdown();
   }
 });
