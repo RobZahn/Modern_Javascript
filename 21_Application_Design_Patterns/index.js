@@ -1,5 +1,6 @@
 // Query Selectors
 const input = document.querySelector('input');
+const target = document.querySelector('#target');
 
 const fetchData = async searchTerm => {
   const response = await axios.get('http://www.omdbapi.com/', {
@@ -12,8 +13,20 @@ const fetchData = async searchTerm => {
   return response.data.Search;
 };
 
-const onInput = event => {
-  const movies = fetchData(event.target.value);
+const onInput = async event => {
+  const movies = await fetchData(event.target.value);
+  console.log(movies);
+
+  for (let movie of movies) {
+    const div = document.createElement('div');
+
+    div.innerHTML = `
+    <h2>${movie.Title}</h2>
+    <img src="${movie.Poster}" width="200">
+    `;
+
+    target.append(div);
+  }
 };
 
 // Event Handlers
