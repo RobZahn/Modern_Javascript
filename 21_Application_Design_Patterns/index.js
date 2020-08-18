@@ -12,20 +12,6 @@ const fetchData = async searchTerm => {
   console.log(response.data);
 };
 
-const debounce = (func, delay = 1000) => {
-  // return a function that will wrap around onInput
-  // delaying request from firing off until n milliseconds after final keystroke
-  let timeoutID;
-
-  return (...args) => {
-    if (timeoutID) clearTimeout(timeoutID);
-
-    timeoutID = setTimeout(() => {
-      func.apply(null, args);
-    }, delay);
-  };
-};
-
 const onInput = event => {
   debounce(fetchData(event.target.value));
 };
