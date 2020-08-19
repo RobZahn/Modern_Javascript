@@ -73,44 +73,74 @@ const onMovieSelect = async (movie, summaryElement, side) => {
 };
 
 const runComparison = () => {
-  console.log('Starting comparison');
+  console.log(leftMovie);
+
+  let leftNums = [];
+  const leftChars = leftMovie.Awards.split('');
+  const alpha = 'abcdefghijklmnopqrstuvwxyz.,;!?& ';
+
+  for (let char of leftChars) {
+    if (!alpha.includes(char.toLowerCase())) {
+      leftNums.push(parseInt(char));
+    }
+  }
+
+  console.log(leftNums);
 };
 
-const movieTemplate = movieDetails => {
+// runComparison('Nominated for 1 Oscar. Another 38 wins & 79 nominations.');
+
+const movieTemplate = ({
+  Poster,
+  Title,
+  Year,
+  Genre,
+  Plot,
+  Awards,
+  BoxOffice,
+  Metascore,
+  imdbRating,
+  imdbVotes
+}) => {
+  const dollars = parseInt(BoxOffice.replace(/[$,]/g, ''));
+  const metascore = parseInt(Metascore);
+  const rating = parseFloat(imdbRating);
+  const votes = parseInt(imdbVotes.replace(/,/g, ''));
+  console.log(dollars, metascore, rating, votes);
   return `
     <article class="media">
       <figure class="media-left">
         <p class="image">
-          <img src="${movieDetails.Poster}" />
+          <img src="${Poster}" />
         </p>
       </figure>
       <div class="media-content">
         <div class="content">
-          <h2>${movieDetails.Title}</h2>
-          <h4>${movieDetails.Year}</h4>
-          <h5>${movieDetails.Genre}</h5>
-          <p>${movieDetails.Plot}</p>
+          <h2>${Title}</h2>
+          <h4>${Year}</h4>
+          <h5>${Genre}</h5>
+          <p>${Plot}</p>
         </div>
       </div>
     </article>
     <article class="notification is-primary">
-      <p class="title">${movieDetails.Awards}</p>
+      <p class="title">${Awards}</p>
       <p class="subtitle">Awards</p>
     </article>
     <article class="notification is-primary">
-      <p class="title">${movieDetails.BoxOffice}</p>
+      <p class="title">${BoxOffice}</p>
       <p class="subtitle">Box Office</p>
     </article>
     <article class="notification is-primary">
-      <p class="title">${movieDetails.Metascore}</p>
+      <p class="title">${Metascore}</p>
       <p class="subtitle">Metascore</p>
     </article>
     <article class="notification is-primary">
-      <p class="title">${movieDetails.imdbRating}</p>
+      <p class="title">${imdbRating}</p>
       <p class="subtitle">IMDB Rating</p>
     </article>
     <article class="notification is-primary">
-      <p class="title">${movieDetails.imdbVotes}</p>
+      <p class="title">${imdbVotes}</p>
       <p class="subtitle">IMDB Votes</p>
     </article>
   `;
