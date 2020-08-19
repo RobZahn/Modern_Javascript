@@ -117,8 +117,6 @@ const movieTemplate = ({
     }
   }, 0);
 
-  console.log(awardsTotal);
-
   return `
     <article class="media">
       <figure class="media-left">
@@ -135,23 +133,23 @@ const movieTemplate = ({
         </div>
       </div>
     </article>
-    <article class="notification is-primary">
+    <article data-value=${awardsTotal} class="notification is-primary">
       <p class="title">${Awards}</p>
       <p class="subtitle">Awards</p>
     </article>
-    <article class="notification is-primary">
+    <article data-value=${dollars} class="notification is-primary">
       <p class="title">${BoxOffice}</p>
       <p class="subtitle">Box Office</p>
     </article>
-    <article class="notification is-primary">
+    <article data-value=${metascore} class="notification is-primary">
       <p class="title">${Metascore}</p>
       <p class="subtitle">Metascore</p>
     </article>
-    <article class="notification is-primary">
+    <article data-value=${rating} class="notification is-primary">
       <p class="title">${imdbRating}</p>
       <p class="subtitle">IMDB Rating</p>
     </article>
-    <article class="notification is-primary">
+    <article data-value=${votes} class="notification is-primary">
       <p class="title">${imdbVotes}</p>
       <p class="subtitle">IMDB Votes</p>
     </article>
