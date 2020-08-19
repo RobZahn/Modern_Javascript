@@ -2,15 +2,13 @@
 // Index
 // *****
 
-createAutoComplete({
-  root: document.querySelector('.autocomplete-1'),
-
+const autoCompleteConfig = {
   renderOption(movie) {
     const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
     return `
-    <img src="${imgSrc}" />
-    ${movie.Title} (${movie.Year})
-  `;
+  <img src="${imgSrc}" />
+  ${movie.Title} (${movie.Year})
+`;
   },
 
   onOptionSelect(movie) {
@@ -33,6 +31,18 @@ createAutoComplete({
 
     return response.data.Search;
   }
+};
+
+createAutoComplete({
+  ...autoCompleteConfig,
+  root: document.querySelector('#left-autocomplete'),
+  itemLabel: 'Movie #1'
+});
+
+createAutoComplete({
+  ...autoCompleteConfig,
+  root: document.querySelector('#right-autocomplete'),
+  itemLabel: 'Movie #2'
 });
 
 const onMovieSelect = async movie => {
