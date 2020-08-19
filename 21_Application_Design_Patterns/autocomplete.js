@@ -2,7 +2,12 @@
 // Autocomplete Widget
 // *******************
 
-const createAutoComplete = ({ root, renderOption }) => {
+const createAutoComplete = ({
+  root,
+  renderOption,
+  onOptionSelect,
+  inputValue
+}) => {
   root.innerHTML = `
   <label><b>Search For a Movie</b></label>
   <input class="input" />
@@ -34,13 +39,14 @@ const createAutoComplete = ({ root, renderOption }) => {
       option.innerHTML = renderOption(movie);
       option.addEventListener('click', () => {
         deactivateDropdown();
-        input.value = movie.Title;
-        onMovieSelect(movie);
+        input.value = inputValue(movie);
+        onOptionSelect(movie);
       });
 
       resultsWrapper.appendChild(option);
     }
   };
+
   input.addEventListener('input', debounce(onInput, 500));
 
   document.addEventListener('click', event => {
