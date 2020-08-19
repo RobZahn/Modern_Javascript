@@ -1,3 +1,7 @@
+// *****
+// Index
+// *****
+
 const fetchData = async searchTerm => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
@@ -6,23 +10,20 @@ const fetchData = async searchTerm => {
     }
   });
 
-  if (response.data.Error) {
-    return [];
-  }
+  if (response.data.Error) return [];
 
   return response.data.Search;
 };
 
 createAutoComplete({
-  root: document.querySelector('.autocomplete-1')
-});
-
-createAutoComplete({
-  root: document.querySelector('.autocomplete-2')
-});
-
-createAutoComplete({
-  root: document.querySelector('.autocomplete-3')
+  root: document.querySelector('.autocomplete-1'),
+  renderOption(movie) {
+    const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
+    return `
+    <img src="${imgSrc}" />
+    ${movie.Title} (${movie.Year})
+  `;
+  }
 });
 
 const onMovieSelect = async movie => {
