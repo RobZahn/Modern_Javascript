@@ -106,7 +106,19 @@ const movieTemplate = ({
   const metascore = parseInt(Metascore);
   const rating = parseFloat(imdbRating);
   const votes = parseInt(imdbVotes.replace(/,/g, ''));
-  console.log(dollars, metascore, rating, votes);
+
+  const awardsTotal = Awards.split(' ').reduce((total, word) => {
+    const value = parseInt(word);
+
+    if (isNaN(value)) {
+      return total;
+    } else {
+      return total + value;
+    }
+  }, 0);
+
+  console.log(awardsTotal);
+
   return `
     <article class="media">
       <figure class="media-left">
