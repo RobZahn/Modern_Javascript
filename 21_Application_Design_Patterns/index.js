@@ -73,19 +73,27 @@ const onMovieSelect = async (movie, summaryElement, side) => {
 };
 
 const runComparison = () => {
-  console.log(leftMovie);
+  const leftSideStats = document.querySelectorAll(
+    '#left-summary .notification'
+  );
+  const rightSideStats = document.querySelectorAll(
+    '#right-summary .notification'
+  );
 
-  let leftNums = [];
-  const leftChars = leftMovie.Awards.split('');
-  const alpha = 'abcdefghijklmnopqrstuvwxyz.,;!?& ';
+  leftSideStats.forEach((leftStat, idx) => {
+    const rightStat = rightSideStats[idx];
 
-  for (let char of leftChars) {
-    if (!alpha.includes(char.toLowerCase())) {
-      leftNums.push(parseInt(char));
+    const leftSideValue = parseInt(leftStat.dataset.value);
+    const rightSideValue = parseInt(rightStat.dataset.value);
+
+    if (rightSideValue > leftSideValue) {
+      leftStat.classList.remove('is-primary');
+      leftStat.classList.add('is-warning');
+    } else {
+      rightStat.classList.remove('is-primary');
+      rightStat.classList.add('is-warning');
     }
-  }
-
-  console.log(leftNums);
+  });
 };
 
 // runComparison('Nominated for 1 Oscar. Another 38 wins & 79 nominations.');
