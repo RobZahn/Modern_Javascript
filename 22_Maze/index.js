@@ -35,4 +35,10 @@ const grid = Array(3)
   .fill(null)
   .map(() => Array(3).fill(false));
 
-console.log(grid);
+const verticals = Array(3)
+  .fill(null)
+  .map(() => Array(2).fill(false));
+
+const horizontals = Array(2)
+  .fill(null)
+  .map(() => Array(3).fill(false));
