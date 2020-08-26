@@ -1,5 +1,6 @@
 const { Bodies, Engine, Render, Runner, World } = Matter;
 
+const cells = 5;
 const width = 600;
 const height = 600;
 
@@ -31,14 +32,14 @@ World.add(world, walls);
 // Maze Generation
 
 // create array of length 3 and fill each space with null, then map over each null el and replace with a new array of length 3 where each el is false
-const grid = Array(3)
+const grid = Array(cells)
   .fill(null)
-  .map(() => Array(3).fill(false));
+  .map(() => Array(cells).fill(false));
 
-const verticals = Array(3)
+const verticals = Array(cells)
   .fill(null)
-  .map(() => Array(2).fill(false));
+  .map(() => Array(cells - 1).fill(false));
 
-const horizontals = Array(2)
+const horizontals = Array(cells - 1)
   .fill(null)
-  .map(() => Array(3).fill(false));
+  .map(() => Array(cells).fill(false));
