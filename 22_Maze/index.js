@@ -27,3 +27,12 @@ const walls = [
 ];
 
 World.add(world, walls);
+
+// Maze Generation
+
+// create array of length 3 and fill each space with null, then map over each null el and replace with a new array of length 3 where each el is false
+const grid = Array(3)
+  .fill(null)
+  .map(() => Array(3).fill(false));
+
+console.log(grid);
