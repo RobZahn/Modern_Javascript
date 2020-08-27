@@ -68,10 +68,10 @@ const stepThroughCell = (row, col) => {
 
   // Assemble randomly ordered list of neighbors
   const neighbors = shuffle([
-    // [row - 1, col, 'up'], // top
-    // [row + 1, col, 'down'], // bottom
-    [row, col + 1, 'right'] // right
-    // [row, col - 1, 'left'] // left
+    [row - 1, col, 'up'],
+    [row + 1, col, 'down'],
+    [row, col + 1, 'right'],
+    [row, col - 1, 'left']
   ]);
 
   for (let neighbor of neighbors) {
@@ -89,6 +89,10 @@ const stepThroughCell = (row, col) => {
       verticals[row][col - 1] = true;
     } else if (direction === 'right') {
       verticals[row][col] = true;
+    } else if (direction === 'up') {
+      horizontals[row - 1][col] = true;
+    } else if (direction === 'down') {
+      horizontals[row][col] = true;
     }
   }
   // 4. Visit that neighbor
