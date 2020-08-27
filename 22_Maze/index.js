@@ -94,8 +94,18 @@ const stepThroughCell = (row, col) => {
     } else if (direction === 'down') {
       horizontals[row][col] = true;
     }
+
+    stepThroughCell(nextRow, nextCol);
   }
   // 4. Visit that neighbor
 };
 
-stepThroughCell(1, 1);
+stepThroughCell(startRow, startCol);
+
+horizontals.forEach(row => {
+  row.forEach(open => {
+    if (open) return;
+
+    const wall = Bodies.rectangle('x', 'y', 'w', 'h');
+  });
+});
