@@ -12,7 +12,7 @@ const render = Render.create({
   element: document.body,
   engine,
   options: {
-    wireframes: true,
+    wireframes: false,
     width,
     height
   }
@@ -112,7 +112,22 @@ horizontals.forEach((row, rowIndex) => {
       columnIndex * unitLength + unitLength / 2,
       rowIndex * unitLength + unitLength,
       unitLength,
-      10,
+      5,
+      { isStatic: true }
+    );
+    World.add(world, wall);
+  });
+});
+
+verticals.forEach((row, rowIndex) => {
+  row.forEach((open, columnIndex) => {
+    if (open) return;
+
+    const wall = Bodies.rectangle(
+      columnIndex * unitLength + unitLength,
+      rowIndex * unitLength + unitLength / 2,
+      5,
+      unitLength,
       { isStatic: true }
     );
     World.add(world, wall);
