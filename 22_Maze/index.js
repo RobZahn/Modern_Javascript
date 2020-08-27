@@ -107,7 +107,6 @@ const stepThroughCell = (row, col) => {
 
     stepThroughCell(nextRow, nextCol);
   }
-  // 4. Visit that neighbor
 };
 
 stepThroughCell(startRow, startCol);
@@ -121,7 +120,7 @@ horizontals.forEach((row, rowIndex) => {
       rowIndex * unitLengthY + unitLengthY,
       unitLengthX,
       5,
-      { label: 'wall', isStatic: true }
+      { label: 'wall', isStatic: true, render: { fillStyle: 'crimson' } }
     );
     World.add(world, wall);
   });
@@ -136,7 +135,7 @@ verticals.forEach((row, rowIndex) => {
       rowIndex * unitLengthY + unitLengthY / 2,
       5,
       unitLengthY,
-      { label: 'wall', isStatic: true }
+      { label: 'wall', isStatic: true, render: { fillStyle: 'crimson' } }
     );
     World.add(world, wall);
   });
@@ -149,15 +148,17 @@ const goal = Bodies.rectangle(
   height - unitLengthY / 2,
   unitLengthX * 0.75,
   unitLengthY * 0.75,
-  { label: 'goal', isStatic: true }
+  { label: 'goal', isStatic: true, render: { fillStyle: 'green' } }
 );
 
 World.add(world, goal);
 
 // Ball
+
 const ballRadius = Math.min(unitLengthX, unitLengthY) / 4;
 const ball = Bodies.circle(unitLengthX / 2, unitLengthY / 2, ballRadius, {
-  label: 'ball'
+  label: 'ball',
+  render: { fillStyle: 'steelblue' }
 });
 World.add(world, ball);
 
