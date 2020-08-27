@@ -7,4 +7,7 @@ document.querySelector('form').addEventListener('submit', event => {
   const linkInput = document.querySelector('#link-input');
   linkInput.value = `${window.location}#${encrypted}`;
   linkInput.select();
+
+  document.querySelector('#message-form').classList.add('hide');
+  document.querySelector('#link-form').classList.remove('hide');
 });
