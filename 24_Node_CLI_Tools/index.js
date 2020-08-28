@@ -3,6 +3,7 @@
 // ^ The above line instructs the computer to allow node to execute the file.
 
 const fs = require('fs');
+const chalk = require('chalk');
 
 // **********************************
 // Solution 1 - Callbacks (not ideal)
@@ -72,6 +73,10 @@ fs.readdir(process.cwd(), async (err, filenames) => {
   for (let stats of allStats) {
     const idx = allStats.indexOf(stats);
 
-    console.log(filenames[idx], stats.isFile());
+    if (stats.isFile()) {
+      console.log(filenames[idx]);
+    } else {
+      console.log(`DIR: ${chalk.bold.blue(filenames[idx])}`);
+    }
   }
 });
