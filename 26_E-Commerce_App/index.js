@@ -2,7 +2,16 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.send(`
+  <div>
+    <form>
+      <input type="email" placeholder="email">
+      <input type="password" placeholder="password">
+      <input type="password" placeholder="confirm password">
+      <button>Sign Up</button>
+    </form>
+  </div>
+  `);
 });
 
 app.listen(3000, () => {
