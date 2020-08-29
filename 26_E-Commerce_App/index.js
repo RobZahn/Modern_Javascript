@@ -4,14 +4,18 @@ const app = express();
 app.get('/', (req, res) => {
   res.send(`
   <div>
-    <form>
-      <input type="email" placeholder="email">
-      <input type="password" placeholder="password">
-      <input type="password" placeholder="confirm password">
+    <form method="POST">
+      <input type="email" name="email" placeholder="email">
+      <input type="password" name="password" placeholder="password">
+      <input type="password" name="confirmPassword" placeholder="confirm password">
       <button>Sign Up</button>
     </form>
   </div>
   `);
+});
+
+app.post('/', (req, res) => {
+  res.send('Account created!');
 });
 
 app.listen(3000, () => {
