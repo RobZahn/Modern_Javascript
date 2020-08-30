@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
     <form method="POST">
       <input type="email" name="email" placeholder="email">
       <input type="password" name="password" placeholder="password">
-      <input type="password" name="confirmPassword" placeholder="confirm password">
+      <input type="password" name="passwordConfirmation " placeholder="confirm password">
       <button>Sign Up</button>
     </form>
   </div>
@@ -15,6 +15,16 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+  req.on('data', data => {
+    const parsed = data.toString('utf8').split('&');
+    const formData = {};
+
+    for (let pair of parsed) {
+      const [key, value] = pair.split('=');
+      formData[key] = value;
+    }
+    console.log(formData);
+  });
   res.send('Account created!');
 });
 
