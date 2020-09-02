@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { report } = require('process');
+const crypto = require('crypto');
 
 class UsersRepository {
   constructor(filename) {
@@ -29,17 +29,27 @@ class UsersRepository {
   // Create
 
   async create(attrs) {
+    attrs.id = this.randomID();
+
     const records = await this.getAll();
     records.push(attrs);
 
     await this.writeAll(records);
   }
 
+  // Write All
+
   async writeAll(records) {
     await fs.promises.writeFile(
       this.filename,
       JSON.stringify(records, null, 2)
     );
+  }
+
+  // Generate Random ID
+
+  randomID() {
+    return crypto.randomBytes(4).toString('hex');
   }
 }
 
