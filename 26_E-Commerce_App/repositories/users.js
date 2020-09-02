@@ -10,9 +10,9 @@ class UsersRepository {
     this.filename = filename;
 
     try {
-      fs.accessSync(this.filename);
+      fs.accessSync(this.filename); // check for existence of repo file
     } catch (err) {
-      fs.writeFileSync(this.filename, '[]');
+      fs.writeFileSync(this.filename, '[]'); // if it doesnt exist, create it
     }
   }
 
@@ -32,7 +32,14 @@ class UsersRepository {
     const records = await this.getAll();
     records.push(attrs);
 
-    await fs.promises.writeFile(this.filename, JSON.stringify(records));
+    await this.writeAll(records);
+  }
+
+  async writeAll(records) {
+    await fs.promises.writeFile(
+      this.filename,
+      JSON.stringify(records, null, 2)
+    );
   }
 }
 
