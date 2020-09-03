@@ -1,8 +1,5 @@
 [
   {
-    "email": "test@test.com"
-  },
-  {
     "email": "120983@aspofk.com",
     "password": "pass1",
     "id": "a2027ecc"
@@ -11,5 +8,10 @@
     "email": "test1@test.com",
     "password": "123",
     "id": "88236b87"
+  },
+  {
+    "email": "test3@test.com",
+    "password": "password",
+    "id": "3fc65716"
   }
 ]
