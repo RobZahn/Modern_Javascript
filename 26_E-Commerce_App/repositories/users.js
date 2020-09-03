@@ -48,6 +48,17 @@ class UsersRepository {
     return record;
   }
 
+  // Compare Passwords
+
+  async comparePasswords(saved, supplied) {
+    // Saved -> password saved in DB. 'hashed.salt'
+    // Supplied -> password received from user
+    const [hashed, salt] = saved.split('.');
+    const buffer = await scrypt(supplied, salt, 64);
+
+    return hashed === buffer.toString('hex');
+  }
+
   // Write All
 
   async writeAll(records) {
