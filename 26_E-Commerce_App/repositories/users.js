@@ -79,7 +79,7 @@ class UsersRepository {
     await this.writeAll(records);
   }
 
-  // Get One By Filter
+  // Get One By Filters
 
   async getOneBy(filters) {
     const records = await this.getAll();
@@ -98,14 +98,4 @@ class UsersRepository {
   }
 }
 
-const test = async () => {
-  const repo = new UsersRepository('users.json');
-
-  const user = await repo.getOneBy({
-    oaewkjfowkwjefofkej: '123'
-  });
-
-  console.log(user);
-};
-
-test();
+module.exports = new UsersRepository('users.json');
